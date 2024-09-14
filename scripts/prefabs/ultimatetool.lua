@@ -16,6 +16,7 @@ local durability = TUNING.NKIY_ULTIMATETOOL_DURABILITY
 local damage = TUNING.NKIY_ULTIMATETOOL_DAMAGE
 local hammer_enabled = TUNING.NKIY_ULTIMATETOOL_HAMMER
 local shovel_enabled = TUNING.NKIY_ULTIMATETOOL_SHOVEL
+local hoe_enabled = TUNING.NKIY_ULTIMATETOOL_HOE
 local pickaxe_enabled = TUNING.NKIY_ULTIMATETOOL_PICKAXE
 local axe_enabled = TUNING.NKIY_ULTIMATETOOL_AXE
 local keep_temperature = TUNING.NKIY_KEEP_TEMP
@@ -83,24 +84,30 @@ local function fn(Sim)
    inst:AddComponent("tool")
    inst:AddComponent("finiteuses")
 
+   inst:AddComponent("farmtiller")
+
    if pickaxe_enabled then
-      inst.components.tool:SetAction(ACTIONS.MINE)
+      inst.components.tool:SetAction(ACTIONS.MINE, 3)
    end
    if axe_enabled then
-      inst.components.tool:SetAction(ACTIONS.CHOP)
+      inst.components.tool:SetAction(ACTIONS.CHOP, 3)
    end
    if hammer_enabled then
-      inst.components.tool:SetAction(ACTIONS.HAMMER)
+      inst.components.tool:SetAction(ACTIONS.HAMMER, 3)
    end
    if shovel_enabled then
       inst.components.tool:SetAction(ACTIONS.DIG)
    end
-
+   if hoe_enabled then
+      inst:AddInherentAction(ACTIONS.TILL)
+   end
+   
    inst.components.finiteuses:SetConsumption(ACTIONS.PICK, 1)
    inst.components.finiteuses:SetConsumption(ACTIONS.CHOP, 1)
    inst.components.finiteuses:SetConsumption(ACTIONS.HAMMER, 1)
    inst.components.finiteuses:SetConsumption(ACTIONS.MINE, 1)
    inst.components.finiteuses:SetConsumption(ACTIONS.DIG, 1)
+   inst.components.finiteuses:SetConsumption(ACTIONS.TILL, 1)
 
    inst.components.finiteuses:SetMaxUses(durability)
    inst.components.finiteuses:SetUses(durability)

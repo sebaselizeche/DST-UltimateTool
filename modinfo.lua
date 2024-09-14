@@ -75,6 +75,15 @@ configuration_options =  {
       default = true,
    },
    {
+      name = "Enable Hoe",
+      options =
+	 {
+	    {description = "Yes", data= true, hover = "Hoe Enabled"},
+	    {description = "No", data = false, hover = "Hoe Disabled"},
+	 },
+      default = true,
+   },
+   {
       name = "",
       options =
 	 {
@@ -164,10 +173,11 @@ configuration_options =  {
       label = "Walk Speed Modifier",
       options =
 	 {
+       {description = "1 lentito", data = 1},
 	    {description = "1.25, As Cane", data = 1.25},
 	    {description = "1.5", data = 1.5},
 	    {description = "2", data = 2.0},
 	 },
-      default = 1.5
+      default = 1
    },
 }
