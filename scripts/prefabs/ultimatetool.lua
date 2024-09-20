@@ -112,6 +112,7 @@ local function fn(Sim)
       inst.components.finiteuses:SetConsumption(ACTIONS.TILL, 1)
       inst.components.finiteuses:SetMaxUses(durability)
       inst.components.finiteuses:SetUses(durability)
+      inst.components.finiteuses:SetOnFinished(inst.Remove)
    end
 
    inst:AddComponent("inspectable")
