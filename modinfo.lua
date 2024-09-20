@@ -1,7 +1,7 @@
 name 						= "Ultimate Tool"
-description 					= "It's a Crazy tool! Originally from Filigrani"
-author 						= "Nkiy"
-version 					= "0.1.1"
+description 					= "It's a Crazy tool! Originally from Filigrani and Nkiy"
+author 						= "Sebas"
+version 					= "0.1.4"
 forumthread 				= ""
 api_version 				= 10
 priority 					= 0.1235123
@@ -124,7 +124,7 @@ configuration_options =  {
 	    {description = "Yes", data = true, hover = "Enable Rock Recipe"},
 	    {description = "No", data = false, hover = "Do not Enable Rock Recipe"},
 	 },
-      default = true,
+      default = false,
    },
    {
       name = "Rock Count",
@@ -158,7 +158,7 @@ configuration_options =  {
 	    {description = "Yes", data = true},
 	    {description = "No", data = false},
 	 },
-      default = true,
+      default = false,
    },
    {
       name = "",
@@ -173,7 +173,7 @@ configuration_options =  {
       label = "Walk Speed Modifier",
       options =
 	 {
-       {description = "1 lentito", data = 1},
+       {description = "1, despacito", data = 1},
 	    {description = "1.25, As Cane", data = 1.25},
 	    {description = "1.5", data = 1.5},
 	    {description = "2", data = 2.0},

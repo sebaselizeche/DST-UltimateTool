@@ -80,9 +80,8 @@ local function fn(Sim)
    inst.components.weapon:SetDamage(damage)
 
    -------
-
    inst:AddComponent("tool")
-   inst:AddComponent("finiteuses")
+   
 
    inst:AddComponent("farmtiller")
 
@@ -101,19 +100,18 @@ local function fn(Sim)
    if hoe_enabled then
       inst:AddInherentAction(ACTIONS.TILL)
    end
-   
-   inst.components.finiteuses:SetConsumption(ACTIONS.PICK, 1)
-   inst.components.finiteuses:SetConsumption(ACTIONS.CHOP, 1)
-   inst.components.finiteuses:SetConsumption(ACTIONS.HAMMER, 1)
-   inst.components.finiteuses:SetConsumption(ACTIONS.MINE, 1)
-   inst.components.finiteuses:SetConsumption(ACTIONS.DIG, 1)
-   inst.components.finiteuses:SetConsumption(ACTIONS.TILL, 1)
 
-   inst.components.finiteuses:SetMaxUses(durability)
-   inst.components.finiteuses:SetUses(durability)
-   if(durability > 0)
-   then
-      inst.components.finiteuses:SetOnFinished(inst.Remove)
+   
+   if(durability > 0) then
+      inst:AddComponent("finiteuses")
+      inst.components.finiteuses:SetConsumption(ACTIONS.PICK, 1)
+      inst.components.finiteuses:SetConsumption(ACTIONS.CHOP, 1)
+      inst.components.finiteuses:SetConsumption(ACTIONS.HAMMER, 1)
+      inst.components.finiteuses:SetConsumption(ACTIONS.MINE, 1)
+      inst.components.finiteuses:SetConsumption(ACTIONS.DIG, 1)
+      inst.components.finiteuses:SetConsumption(ACTIONS.TILL, 1)
+      inst.components.finiteuses:SetMaxUses(durability)
+      inst.components.finiteuses:SetUses(durability)
    end
 
    inst:AddComponent("inspectable")
